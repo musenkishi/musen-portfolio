@@ -8,7 +8,7 @@ type SectionProps = {
 //<div className="grid grid-flow-row lg:grid-cols-2 md:grid-cols-1 gap-16">
 const Section: FC<SectionProps> = ({ title, children }) => {
   return (
-    <div className="flex flex-col min-w-sm max-w-md">
+    <div className="flex flex-col items-start min-w-sm max-w-md gap-2">
       <SectionTitle>{title}</SectionTitle>
       {children}
     </div>

@@ -36,7 +36,7 @@ const VoxelContainer = ({ children, hide }: VoxelContainerProps) =>
   hide ? (
     <></>
   ) : (
-    <div className="relative m-auto sm:mb-[-5rem] md:mb-[-5rem] lg:mb-[-8rem] sm:h-[16rem] md:h-[20rem] lg:h-[32rem]">
+    <div className="relative m-auto sm:mb-[-5rem] md:mb-[-5rem] lg:mb-[-16rem] sm:h-[20rem] md:h-[32rem]">
       {children}
     </div>
   )
