@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@plugin 'tailwindcss-animate';
+
+:root {
+  --primary-color: oklch(94.74% 0.0249 263.33);
+  --primary-color-foreground: oklch(65.37% 0.1845 261.39);
+  --secondary-color: oklch(93.09% 0.0434 59.4);
+  --secondary-color-foreground: oklch(70.76% 0.19745 46.4558);
+  --accent-color: oklch(90.26% 0.0529 5.02);
+  --accent-color-foreground: oklch(65.86% 0.231 15.83);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: oklch(65.37% 0.1845 261.39);
+    --primary-color-foreground: oklch(100% 0 0);
+    --secondary-color: oklch(70.76% 0.19745 46.4558);
+    --secondary-color-foreground: oklch(93.09% 0.0434 59.4);
+    --accent-color: oklch(65.86% 0.231 15.83);
+    --accent-color-foreground: oklch(100% 0 0);
+  }
+}
+
+@theme inline {
+  --font-display: var(--font-quicksand), system-ui;
+  --font-sans: var(--font-quicksand), system-ui;
+  --font-mono: var(--font-sono), ui-monospace;
+
+  --radius: 0.6rem;
+
+  --color-primary: var(--primary-color);
+  --color-primary-foreground: var(--primary-color-foreground);
+  --color-secondary: var(--secondary-color);
+  --color-secondary-foreground: var(--secondary-color-foreground);
+  --color-accent: var(--accent-color);
+  --color-accent-foreground: var(--accent-color-foreground);
+
+  --color-primary-50: oklch(100% 0 0);
+  --color-primary-100: oklch(100% 0 0);
+  --color-primary-200: oklch(94.74% 0.0249 263.33);
+  --color-primary-300: oklch(84.56% 0.076153 262.6169);
+  --color-primary-400: oklch(74.65% 0.1301 261.99);
+  --color-primary-500: oklch(65.37% 0.1845 261.39);
+  --color-primary-600: oklch(57.37% 0.234 261.56);
+  --color-primary-700: oklch(50.13% 0.2332 262.08);
+  --color-primary-800: oklch(41.89% 0.1909 261.8);
+  --color-primary-900: oklch(33.23% 0.146 261.26);
+  --color-primary-950: oklch(28.75% 0.1229 260.82);
+  --color-secondary-50: oklch(96.59% 0.022 63.21);
+  --color-secondary-100: oklch(93.09% 0.0434 59.4);
+  --color-secondary-200: oklch(86.52% 0.088 58.45);
+  --color-secondary-300: oklch(80.62% 0.1312 57.4);
+  --color-secondary-400: oklch(75.24% 0.1691 53.51);
+  --color-secondary-500: oklch(70.76% 0.19745 46.4558);
+  --color-secondary-600: oklch(60.05% 0.165588 47.1967);
+  --color-secondary-700: oklch(48.84% 0.1321 48.43);
+  --color-secondary-800: oklch(36.78% 0.0973 49.96);
+  --color-secondary-900: oklch(23.85% 0.0583 56.02);
+  --color-secondary-950: oklch(16.86% 0.0378 65.14);
+  --color-accent-50: oklch(100% 0 0);
+  --color-accent-100: oklch(100% 0 0);
+  --color-accent-200: oklch(90.26% 0.0529 5.02);
+  --color-accent-300: oklch(80.26% 0.1172 7.35);
+  --color-accent-400: oklch(71.81% 0.1812 10.4);
+  --color-accent-500: oklch(65.86% 0.231 15.83);
+  --color-accent-600: oklch(63.19% 0.2537 22.97);
+  --color-accent-700: oklch(54.3% 0.2192 23.11);
+  --color-accent-800: oklch(44.15% 0.1779 22.2);
+  --color-accent-900: oklch(33.38% 0.1341 20.37);
+  --color-accent-950: oklch(27.76% 0.1114 19.39);
+}
+
+@layer components {
+  body {
+    @apply antialiased;
+    @apply bg-primary-300;
+    @apply text-primary-950;
+    @apply dark:bg-primary-950;
+    @apply dark:text-primary-100;
+  }
+}
+
+main {
+  transition-property: opacity, transform;
+  transition-timing-function: ease-in-out;
+  transition-duration: 250ms;
+}
+
+.page-transition {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 1.125rem;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.25rem;
+  padding: 0.625rem;
+
+  svg {
+    transition: 200ms ease;
+  }
+
+  &:hover svg {
+    transform: rotate(20deg);
+  }
+}
