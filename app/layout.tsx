@@ -4,6 +4,7 @@ import "./globals.css"
 import NavBar from "@/src/components/navbar"
 import Head from "next/head"
 import VoxelModel from "@/src/components/voxel-dude"
+import Footer from "@/src/components/footer"
 
 const fontSans = Quicksand({
   variable: "--font-quicksand",
@@ -41,6 +42,7 @@ export default function RootLayout({
         <div className="pt-18" />
         <VoxelModel hide={false} />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
