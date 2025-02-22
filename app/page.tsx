@@ -13,11 +13,23 @@ import { RiBlueskyFill, RiGithubFill, RiLinkedinBoxFill } from "react-icons/ri"
 export default function Home() {
   return (
     <Grid alignItems="center" justifyItems="center">
-      {/* <div className="w-full lg:max-w-5xl flex flex-col content-center items-center gap-4"> */}
-      <Flex>
+      <Flex
+        direction="column"
+        width="full"
+        lg={{ maxWidth: "5xl" }}
+        alignContent="center"
+        alignItems="center"
+        gap={4}
+      >
         <Greeting className="lg:mt-[-6rem] md:mt-[-5rem] sm:mt-[-5rem] " />
         <ProfileCard />
-        <Grid flow="row" columns={{ md: 2, sm: 1 }} gap={4} padding={4}>
+        <Grid
+          flow="row"
+          md={{ columns: 2 }}
+          sm={{ columns: 1 }}
+          gap={4}
+          padding={4}
+        >
           <Section title="Me">
             <Paragraph>
               I&apos;m a full-stack developer based in Uppsala with a passion

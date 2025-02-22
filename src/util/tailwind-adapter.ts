@@ -1,66 +1,86 @@
-import {
-  AlignItemsProps,
-  FlowProps,
-  GapProps,
-  PaddingProps,
-  SizeProps,
-} from "../types/tailwind-types"
+import { AlignContentProps, AlignItemsProps } from "../types/tailwind/align"
+import { FlexDirection } from "../types/tailwind/flex"
+import { GapProps } from "../types/tailwind/gap"
+import { GridFlowProps } from "../types/tailwind/grid"
+import { HeightProps } from "../types/tailwind/height"
+import { PaddingProps } from "../types/tailwind/padding"
+import { SizeProps } from "../types/tailwind/size"
+import { TailwindProps } from "../types/tailwind/tailwind"
+import { WidthProps } from "../types/tailwind/width"
 
-export const generateJustifyItems = (
-  alignItems: AlignItemsProps | undefined
+const generateAlignContent = (
+  alignment: AlignContentProps | undefined,
+  prefix: string | undefined = ""
+) => {
+  if (!alignment) return ""
+  return `${prefix}content-${alignment}`
+}
+
+const generateJustifyItems = (
+  alignItems: AlignItemsProps | undefined,
+  prefix: string | undefined = ""
 ): string => {
   if (!alignItems) return ""
-  return `justify-items-${alignItems}`
+  return `${prefix}justify-items-${alignItems}`
 }
 
-export const generateAlignItems = (
-  alignItems: AlignItemsProps | undefined
+const generateAlignItems = (
+  alignItems: AlignItemsProps | undefined,
+  prefix: string | undefined = ""
 ): string => {
   if (!alignItems) return ""
-  return `items-${alignItems}`
+  return `${prefix}items-${alignItems}`
 }
 
-export const generateGridColumns = (columns: SizeProps | undefined): string => {
-  if (typeof columns === "number") {
-    return `grid-cols-${columns}`
-  }
-  if (columns && typeof columns === "object") {
-    const classes = []
-    if (columns.xs) classes.push(`xs:grid-cols-${columns.xs}`)
-    if (columns.sm) classes.push(`sm:grid-cols-${columns.sm}`)
-    if (columns.md) classes.push(`md:grid-cols-${columns.md}`)
-    if (columns.lg) classes.push(`lg:grid-cols-${columns.lg}`)
-    if (columns.xl) classes.push(`xl:grid-cols-${columns.xl}`)
-    return classes.join(" ")
-  }
-  return ""
+const generateGridColumns = (
+  columns: number | undefined,
+  prefix: string | undefined = ""
+): string => {
+  if (!columns) return ""
+  return `${prefix}grid-cols-${columns}`
 }
 
-export const generateGridFlow = (flow: FlowProps | undefined): string => {
+const generateGridFlow = (
+  flow: GridFlowProps | undefined,
+  prefix: string | undefined = ""
+): string => {
   if (!flow) return ""
-  if (flow === "row") return "grid-flow-row"
-  if (flow === "column") return "grid-flow-col"
-  if (flow === "dense") return "grid-flow-row-dense"
-  if (flow === "row dense") return "grid-flow-row-dense"
-  if (flow === "column dense") return "grid-flow-col-dense"
-  return ""
+  switch (flow) {
+    case "row":
+      return `${prefix}grid-flow-row`
+    case "column":
+      return `${prefix}grid-flow-col`
+    case "dense":
+    case "row dense":
+      return `${prefix}grid-flow-row-dense`
+    case "column dense":
+      return `${prefix}grid-flow-col-dense`
+    default:
+      return ""
+  }
 }
 
-export const generateGap = (gap: GapProps | undefined): string => {
+const generateGap = (
+  gap: GapProps | undefined,
+  prefix: string | undefined = ""
+): string => {
   if (typeof gap === "number") {
-    return `gap-${gap}`
+    return `${prefix}gap-${gap}`
   }
   if (gap && typeof gap === "object") {
-    const gapX = gap.x ? `gap-x-${gap.x}` : ""
-    const gapY = gap.y ? `gap-y-${gap.y}` : ""
+    const gapX = gap.x ? `${prefix}gap-x-${gap.x}` : ""
+    const gapY = gap.y ? `${prefix}gap-y-${gap.y}` : ""
     return `${gapX} ${gapY}`.trim()
   }
   return ""
 }
 
-export const generatePadding = (padding: PaddingProps | undefined): string => {
+const generatePadding = (
+  padding: PaddingProps | undefined,
+  prefix: string | undefined = ""
+): string => {
   if (typeof padding === "number") {
-    return `p-${padding}`
+    return `${prefix}p-${padding}`
   }
   if (padding && typeof padding === "object") {
     const classes = []
@@ -68,10 +88,90 @@ export const generatePadding = (padding: PaddingProps | undefined): string => {
     if (padding.bottom !== undefined) classes.push(`pb-${padding.bottom}`)
     if (padding.start !== undefined) classes.push(`ps-${padding.start}`)
     if (padding.end !== undefined) classes.push(`pe-${padding.end}`)
-    return classes.join(" ")
+    return prefix + classes.join(" ")
   }
   return ""
 }
 
+const generateFlexDirection = (
+  direction: FlexDirection | undefined,
+  prefix: string | undefined = ""
+) => {
+  if (!direction) return ""
+  switch (direction) {
+    case "column":
+      return `${prefix}flex-col`
+    case "column reverse":
+      return `${prefix}flex-col-reverse`
+    case "row reverse":
+      return `${prefix}flex-row-reverse`
+    case "row":
+    default:
+      return `${prefix}flex-row`
+  }
+}
+
+const generateWidth = (width: WidthProps | undefined, prefix?: string) => {
+  if (!width) return ""
+  return `${prefix || ""}w-${width}`
+}
+
+const generateMinWidth = (
+  minWidth: WidthProps | undefined,
+  prefix: string | undefined = ""
+) => (!minWidth ? "" : `${prefix}min-${generateWidth(minWidth)}`)
+
+const generateMaxWidth = (
+  maxWidth: WidthProps | undefined,
+  prefix: string | undefined = ""
+) => (!maxWidth ? "" : `${prefix}max-${generateWidth(maxWidth)}`)
+
+const generateHeight = (height: HeightProps | undefined, prefix?: string) => {
+  if (!height) return ""
+  return `${prefix || ""}h-${height}`
+}
+
+const generateMinHeight = (
+  minHeight: HeightProps | undefined,
+  prefix: string | undefined = ""
+) => (!minHeight ? "" : `${prefix}min-${generateHeight(minHeight)}`)
+
+const generateMaxHeight = (
+  maxHeight: HeightProps | undefined,
+  prefix: string | undefined
+) => (!maxHeight ? "" : `${prefix}max-${generateHeight(maxHeight)}`)
+
+const generateSize = (size: SizeProps | undefined, prefix?: string) => {
+  if (!size) return ""
+  return `${prefix || ""}size-${size}`
+}
+
 export const generateTailwindClasses = (...attributes: string[]) =>
   attributes.join(" ")
+
+export const generateTailwind = (
+  props: TailwindProps,
+  prefix?: string
+): string =>
+  generateTailwindClasses(
+    props.xs ? generateTailwind(props.xs, "xs:") : "",
+    props.sm ? generateTailwind(props.sm, "sm:") : "",
+    props.md ? generateTailwind(props.md, "md:") : "",
+    props.lg ? generateTailwind(props.lg, "lg:") : "",
+    props.xl ? generateTailwind(props.xl, "xl:") : "",
+    generateWidth(props.width, prefix),
+    generateMinWidth(props.minWidth, prefix),
+    generateMaxWidth(props.maxWidth, prefix),
+    generateHeight(props.height, prefix),
+    generateMinHeight(props.minHeight, prefix),
+    generateMaxHeight(props.maxHeight, prefix),
+    generateSize(props.size, prefix),
+    generateFlexDirection(props.direction, prefix),
+    generateGridFlow(props.flow, prefix),
+    generateGridColumns(props.columns, prefix),
+    generateAlignItems(props.alignItems, prefix),
+    generateAlignContent(props.alignContent, prefix),
+    generateJustifyItems(props.justifyItems, prefix),
+    generateGap(props.gap, prefix),
+    generatePadding(props.padding, prefix)
+  )
