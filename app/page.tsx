@@ -1,5 +1,6 @@
 import { Button } from "@/components/components/ui/button"
-import Badge from "@/src/components/badge"
+import Flex from "@/src/components/flex"
+import Grid from "@/src/components/grid"
 import { PageLink } from "@/src/components/link/page-link"
 import SocialLink from "@/src/components/link/social-link"
 import Paragraph from "@/src/components/paragraph"
@@ -11,11 +12,12 @@ import { RiBlueskyFill, RiGithubFill, RiLinkedinBoxFill } from "react-icons/ri"
 
 export default function Home() {
   return (
-    <div className="grid items-center justify-items-center">
-      <div className="w-full lg:max-w-5xl flex flex-col content-center items-center gap-4">
+    <Grid alignItems="center" justifyItems="center">
+      {/* <div className="w-full lg:max-w-5xl flex flex-col content-center items-center gap-4"> */}
+      <Flex>
         <Greeting className="lg:mt-[-6rem] md:mt-[-5rem] sm:mt-[-5rem] " />
         <ProfileCard />
-        <div className="grid grid-flow-row md:grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-4 p-4">
+        <Grid flow="row" columns={{ md: 2, sm: 1 }} gap={4} padding={4}>
           <Section title="Me">
             <Paragraph>
               I&apos;m a full-stack developer based in Uppsala with a passion
@@ -38,24 +40,24 @@ export default function Home() {
             </Paragraph>
           </Section>
           <Section title="On the web">
-              <SocialLink
-                href="https://github.com/musenkishi"
-                icon={<RiGithubFill />}
-                label="@musenkishi"
-              />
-              <SocialLink
-                href="https://www.linkedin.com/in/freddielusthed"
-                icon={<RiLinkedinBoxFill />}
-                label="@freddielusthed"
-              />
-              <SocialLink
-                href="https://bsky.app/profile/musen.dev"
-                icon={<RiBlueskyFill />}
-                label="@musen.dev"
-              />
+            <SocialLink
+              href="https://github.com/musenkishi"
+              icon={<RiGithubFill />}
+              label="@musenkishi"
+            />
+            <SocialLink
+              href="https://www.linkedin.com/in/freddielusthed"
+              icon={<RiLinkedinBoxFill />}
+              label="@freddielusthed"
+            />
+            <SocialLink
+              href="https://bsky.app/profile/musen.dev"
+              icon={<RiBlueskyFill />}
+              label="@musen.dev"
+            />
           </Section>
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Flex>
+    </Grid>
   )
 }
