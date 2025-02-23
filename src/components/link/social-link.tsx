@@ -6,13 +6,14 @@ type SocialLinkProps = {
   href: string
   label: string
   icon: ReactNode
+  hideLabelOnSmall?: boolean
 }
 
-const SocialLink: FC<SocialLinkProps> = ({ href, label, icon }) => {
+const SocialLink: FC<SocialLinkProps> = ({ href, label, icon, hideLabelOnSmall }) => {
   return (
     <Button asChild variant="ghost">
       <Link href={href} target="_blank" className="font-semibold">
-        {icon} {label}
+        {icon} <span className={hideLabelOnSmall ? "sr-only md:not-sr-only" : ""}>{label}</span>
       </Link>
     </Button>
   )
