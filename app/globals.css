@@ -80,6 +80,25 @@
   }
 }
 
+@keyframes fade-in-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+.appear-in-animation {
+  animation-name: fade-in-slide;
+  animation-duration: .25s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: initial;
+  animation-fill-mode: forwards;
+}
+
 main {
   transition-property: opacity, transform;
   transition-timing-function: ease-in-out;

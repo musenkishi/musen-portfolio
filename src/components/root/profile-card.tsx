@@ -17,7 +17,7 @@ const ProfileCard: FC = () => {
     <div className={"flex flex-wrap gap-12 justify-center items-center"}>
       <div>
         <span className="text-4xl font-bold grow-0">Freddie Lust-Hed</span>
-        <p>Digital Craftsman ( Developer / Designer ) </p>
+        <p>Digital Craftsman</p>
       </div>
       <MyAvatar />
     </div>

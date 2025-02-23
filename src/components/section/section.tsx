@@ -1,13 +1,14 @@
-import { FC, ReactNode } from "react"
-import SectionTitle from "./title"
+import { CSSProperties, FC, ReactNode } from "react"
+import SectionTitle from "./section-title"
 
-type SectionProps = {
+export type SectionProps = {
   title: ReactNode
-  children: ReactNode
+  children?: ReactNode
+  style?: CSSProperties
 }
-const Section: FC<SectionProps> = ({ title, children }) => {
+const Section: FC<SectionProps> = ({ title, children, style }) => {
   return (
-    <div className="flex flex-col items-start max-w-md gap-2">
+    <div className="appear-in-animation flex flex-col items-start max-w-md gap-2" style={style}>
       <SectionTitle>{title}</SectionTitle>
       {children}
     </div>

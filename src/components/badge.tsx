@@ -1,14 +1,18 @@
 import { FC, ReactNode } from "react"
 
+export type BadgeVariant = "default" | "secondary" | "accent" | "outline"
+
 type BadgeProps = {
-  variant?: "default" | "secondary" | "accent" | "outline"
+  variant?: BadgeVariant
   className?: string
+  style?: React.CSSProperties
   children: ReactNode
 }
 
 const Badge: FC<BadgeProps> = ({
   variant = "default",
   className,
+  style,
   children,
 }) => {
   const baseStyle =
@@ -40,7 +44,7 @@ const Badge: FC<BadgeProps> = ({
   }
 
   return (
-    <span className={className + " " + baseStyle + " " + getVariant()}>
+    <span className={className + " " + baseStyle + " " + getVariant()} style={style}>
       {children}
     </span>
   )
