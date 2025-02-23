@@ -86,6 +86,7 @@ const RootSections: FC = () => {
           <Section
             key={"section-" + index}
             title={section.title}
+            maxWidth="md"
             style={{
               opacity: 0,
               animationDelay: index * 100 + "ms",

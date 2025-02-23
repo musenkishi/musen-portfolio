@@ -11,7 +11,8 @@ const rootFlexClasses = cn(
   "flex-col",
   "content-center",
   "items-center",
-  "gap-4"
+  "gap-4",
+  "p-2"
 )
 
 const RootFlex: FC<FlexProps> = ({ children }) => {

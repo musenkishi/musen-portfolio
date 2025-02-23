@@ -100,14 +100,15 @@
 }
 
 main {
-  transition-property: opacity, transform;
+  transition-property: opacity, transform, filter;
   transition-timing-function: ease-in-out;
-  transition-duration: 250ms;
+  transition-duration: 500ms;
 }
 
 .page-transition {
   opacity: 0;
   transform: translateY(2.5rem);
+  filter: blur(.25rem);
 }
 
 .navbar-logo {

@@ -1,9 +1,10 @@
-
+import Projects from "@/src/components/projects/projects"
+import RootFlex from "@/src/components/root/root-flex"
 
 export default function Page() {
-    return (
-        <div>
-            This is the Projects page
-        </div>
-    )
+  return (
+    <RootFlex>
+      <Projects />
+    </RootFlex>
+  )
 }

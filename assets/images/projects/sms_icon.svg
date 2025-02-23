@@ -1,0 +1,34 @@
+<svg width="512" height="512" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="marker6" overflow="visible" markerHeight="0.5" markerWidth="0.5" orient="auto" preserveAspectRatio="xMidYMid" viewBox="0 0 1 1">
+   <path transform="scale(.5)" d="m5 0c0 2.76-2.24 5-5 5s-5-2.24-5-5 2.3-5 5-5c2.76 0 5 2.24 5 5z" fill="context-stroke" fill-rule="evenodd"/>
+  </marker>
+  <marker id="Dot" overflow="visible" markerHeight="0.5" markerWidth="0.5" orient="auto" preserveAspectRatio="xMidYMid" viewBox="0 0 1 1">
+   <path transform="scale(.5)" d="m5 0c0 2.76-2.24 5-5 5s-5-2.24-5-5 2.3-5 5-5c2.76 0 5 2.24 5 5z" fill="context-stroke" fill-rule="evenodd"/>
+  </marker>
+  <filter id="filter24" x="-.10689" y="-.12183" width="1.2138" height="1.3015" color-interpolation-filters="sRGB">
+   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".49804" in="SourceGraphic" result="flood"/>
+   <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="0.400000"/>
+   <feOffset dx="0.000000" dy="1.000000" in="blur" result="offset"/>
+   <feComposite in="flood" in2="offset" operator="in" result="comp1"/>
+   <feComposite in="SourceGraphic" in2="comp1" result="comp2"/>
+  </filter>
+ </defs>
+ <g stroke-linecap="round" stroke-linejoin="round">
+  <path d="m7.1824 10.107 4.8123 3.7903 4.823-3.7948m-12.244 8.7507h14.852c1.3446 0 2.4272-1.0701 2.4272-2.3994v-8.9078c0-1.3293-1.0825-2.3994-2.4272-2.3994h-14.852c-1.3446 0-2.4272 1.0701-2.4272 2.3994v8.9078c0 1.3293 1.0825 2.3994 2.4272 2.3994z" display="none" fill="#fff" stroke="#fff" stroke-width="4.193"/>
+  <path d="m7.1824 10.107 4.8123 3.7903 4.823-3.7948m-12.244 8.7507h14.852c1.3446 0 2.4272-1.0701 2.4272-2.3994v-8.9078c0-1.3293-1.0825-2.3994-2.4272-2.3994h-14.852c-1.3446 0-2.4272 1.0701-2.4272 2.3994v8.9078c0 1.3293 1.0825 2.3994 2.4272 2.3994z" display="none" fill="none" stroke="#c04" stroke-width="2.293"/>
+  <path d="m4.536 20.5h14.928c1.3515 0 2.4396-1.0646 2.4396-2.387v-12.226c0-1.3224-1.088-2.387-2.4396-2.387h-14.928c-1.3515 0-2.4396 1.0646-2.4396 2.387v12.226c0 1.3224 1.088 2.387 2.4396 2.387z" display="none" fill="#fff" stroke="#fff" stroke-width="4.1928"/>
+ </g>
+ <g fill="none" stroke="#c04" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m7.1824 10.107 4.8123 3.7903 4.823-3.7948m-12.244 8.7507-0.0019458 3.5836 5.4279-3.5836h9.426c0.6723 0 1.2791-0.26752 1.7178-0.70121 0.43872-0.43369 0.70938-1.0335 0.70938-1.6982v-8.9078c0-1.3293-1.0825-2.3994-2.4272-2.3994h-14.852c-1.3446 0-2.4272 1.0701-2.4272 2.3994v8.9078c0 1.3293 1.0825 2.3994 2.4272 2.3994z" display="none" stroke-width="2.293"/>
+  <path d="m7.9917 10.997 4.0039 2.0088 4.0128-2.0112" display="none" stroke-width="2.5"/>
+  <path d="m7.9917 10.997 4.0039 2.0088 4.0128-2.0112" display="none" marker-end="url(#marker6)" marker-mid="url(#marker6)" marker-start="url(#Dot)" stroke-dasharray="0, 16.7494" stroke-width="1.5227"/>
+  <path d="m4.5737 18.853-0.0019458 3.5836 5.4279-3.5836h9.426c0.6723 0 1.2791-0.26752 1.7178-0.70121 0.43872-0.43369 0.70938-1.0335 0.70938-1.6982v-8.9078c0-1.3293-1.0825-2.3994-2.4272-2.3994h-14.852c-1.3446 0-2.4272 1.0701-2.4272 2.3994v8.9078c0 1.3293 1.0825 2.3994 2.4272 2.3994z" display="none" stroke-width="2.293"/>
+ </g>
+ <path d="m4.5737 17.326-0.0019458 3.5836 5.4279-3.5836h9.426c0.6723 0 1.2791-0.26752 1.7178-0.70121 0.43872-0.43369 0.70938-1.0335 0.70938-1.6982v-8.9078c0-1.3293-1.0825-2.3994-2.4272-2.3994h-14.852c-1.3446 0-2.4272 1.0701-2.4272 2.3994v8.9078c0 1.3293 1.0825 2.3994 2.4272 2.3994z" fill="#eee" filter="url(#filter24)" stroke="#eee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.293"/>
+ <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m6.5693 8.7567 5.4247 4.2727 5.4368-4.2778" stroke="#c04" stroke-width="2.5"/>
+  <path d="m7.9917 9.4692 4.0039 2.0088 4.0128-2.0112" display="none" marker-end="url(#marker6)" marker-mid="url(#marker6)" marker-start="url(#Dot)" stroke="#fff" stroke-dasharray="0, 10.9999"/>
+  <path d="m6.5439 9.1068 5.4501 2.7344 5.4622-2.7376" display="none" stroke="#c04" stroke-opacity=".37869" stroke-width="2.5"/>
+ </g>
+</svg>

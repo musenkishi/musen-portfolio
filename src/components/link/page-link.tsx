@@ -1,6 +1,6 @@
 "use client"
 
-import TLink, { LinkProps } from "next/link"
+import NextLink, { LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
 import { ReactNode } from "react"
 
@@ -21,17 +21,18 @@ export const PageLink = ({ children, href, ...props }: MyLinkProps) => {
   ) => {
     e.preventDefault()
 
-    const body = document.querySelector("main")
+    const main = document.querySelector("main")
 
-    body?.classList.add("page-transition")
+    main?.classList.add("page-transition")
     await sleep(250)
     router.push(href)
-    body?.classList.remove("page-transition")
+    await sleep(250)
+    main?.classList.remove("page-transition")
   }
 
   return (
-    <TLink onClick={handleTransition} href={href} {...props}>
+    <NextLink onClick={handleTransition} href={href} {...props}>
       {children}
-    </TLink>
+    </NextLink>
   )
 }

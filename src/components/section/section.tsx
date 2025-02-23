@@ -5,10 +5,17 @@ export type SectionProps = {
   title: ReactNode
   children?: ReactNode
   style?: CSSProperties
+  maxWidth?: "sm" | "md" | "lg" | "xl"
 }
-const Section: FC<SectionProps> = ({ title, children, style }) => {
+const Section: FC<SectionProps> = ({ title, children, style, maxWidth }) => {
+
+  const mw = maxWidth ? "max-w-" + maxWidth : ""
+
   return (
-    <div className="appear-in-animation flex flex-col items-start max-w-md gap-2" style={style}>
+    <div
+      className={"appear-in-animation flex flex-col items-start " + mw + " gap-2"}
+      style={style}
+    >
       <SectionTitle>{title}</SectionTitle>
       {children}
     </div>
