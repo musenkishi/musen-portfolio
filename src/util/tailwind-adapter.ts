@@ -3,6 +3,7 @@ import { FlexDirection } from "../types/tailwind/flex"
 import { GapProps } from "../types/tailwind/gap"
 import { GridFlowProps } from "../types/tailwind/grid"
 import { HeightProps } from "../types/tailwind/height"
+import { MarginProps } from "../types/tailwind/margin"
 import { PaddingProps } from "../types/tailwind/padding"
 import { SizeProps } from "../types/tailwind/size"
 import { TailwindProps } from "../types/tailwind/tailwind"
@@ -93,6 +94,24 @@ const generatePadding = (
   return ""
 }
 
+const generateMargin = (
+  margin: MarginProps | undefined,
+  prefix: string | undefined = ""
+): string => {
+  if (typeof margin === "number") {
+    return `${prefix}m-${margin}`
+  }
+  if (margin && typeof margin === "object") {
+    const classes = []
+    if (margin.top !== undefined) classes.push(`mt-${margin.top}`)
+    if (margin.bottom !== undefined) classes.push(`mb-${margin.bottom}`)
+    if (margin.start !== undefined) classes.push(`ms-${margin.start}`)
+    if (margin.end !== undefined) classes.push(`me-${margin.end}`)
+    return prefix + classes.join(" ")
+  }
+  return ""
+}
+
 const generateFlexDirection = (
   direction: FlexDirection | undefined,
   prefix: string | undefined = ""
@@ -146,19 +165,22 @@ const generateSize = (size: SizeProps | undefined, prefix?: string) => {
   return `${prefix || ""}size-${size}`
 }
 
+const generateBackground = (
+  bg: string | undefined,
+  prefix: string | undefined
+) => {
+  if (!bg) return ""
+  return !bg ? "" : `${prefix || ""}${bg}`
+}
+
 export const generateTailwindClasses = (...attributes: string[]) =>
-  attributes.join(" ")
+  attributes.filter((c) => !!c).join(" ")
 
 export const generateTailwind = (
   props: TailwindProps,
   prefix?: string
 ): string =>
   generateTailwindClasses(
-    props.xs ? generateTailwind(props.xs, "xs:") : "",
-    props.sm ? generateTailwind(props.sm, "sm:") : "",
-    props.md ? generateTailwind(props.md, "md:") : "",
-    props.lg ? generateTailwind(props.lg, "lg:") : "",
-    props.xl ? generateTailwind(props.xl, "xl:") : "",
     generateWidth(props.width, prefix),
     generateMinWidth(props.minWidth, prefix),
     generateMaxWidth(props.maxWidth, prefix),
@@ -166,6 +188,7 @@ export const generateTailwind = (
     generateMinHeight(props.minHeight, prefix),
     generateMaxHeight(props.maxHeight, prefix),
     generateSize(props.size, prefix),
+    generateBackground(props.bg, prefix),
     generateFlexDirection(props.direction, prefix),
     generateGridFlow(props.flow, prefix),
     generateGridColumns(props.columns, prefix),
@@ -173,5 +196,11 @@ export const generateTailwind = (
     generateAlignContent(props.alignContent, prefix),
     generateJustifyItems(props.justifyItems, prefix),
     generateGap(props.gap, prefix),
-    generatePadding(props.padding, prefix)
+    generatePadding(props.padding, prefix),
+    generateMargin(props.margin, prefix),
+    props.xs ? generateTailwind(props.xs, "xs:") : "",
+    props.sm ? generateTailwind(props.sm, "sm:") : "",
+    props.md ? generateTailwind(props.md, "md:") : "",
+    props.lg ? generateTailwind(props.lg, "lg:") : "",
+    props.xl ? generateTailwind(props.xl, "xl:") : ""
   )

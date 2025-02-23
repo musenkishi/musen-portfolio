@@ -1,11 +1,10 @@
 import { FC } from "react"
 
-const Greeting: FC<{ className?: string }> = ({ className }) => {
+const Greeting: FC = () => {
   return (
     <span
       className={
-        className +
-        " text-center backdrop-blur-md mb-6 p-4 bg-white/20 dark:bg-white/10 rounded-xl"
+        "text-center backdrop-blur-md mb-6 p-4 bg-white/20 dark:bg-white/10 rounded-xl "
       }
     >
       Hello, I&apos;m a full-stack developer in Sweden!

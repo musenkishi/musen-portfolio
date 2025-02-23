@@ -1,6 +1,7 @@
 "use client"
 
 import { Skeleton } from "@/components/components/ui/skeleton"
+import { cn } from "@/components/lib/utils"
 import { a, useTransition } from "@react-spring/three"
 import { Html, OrbitControls, useGLTF } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
@@ -32,21 +33,26 @@ type VoxelContainerProps = {
   hide: boolean
 }
 
-const VoxelContainer = ({ children, hide }: VoxelContainerProps) =>
-  hide ? (
-    <></>
-  ) : (
-    <div className="relative m-auto sm:mb-[-5rem] md:mb-[-5rem] lg:mb-[-16rem] sm:h-[20rem] md:h-[32rem]">
-      {children}
-    </div>
+const VoxelContainer = ({ children, hide }: VoxelContainerProps) => {
+  const containerClasses = cn(
+    "relative",
+    "bg-secondary/25",
+    "m-auto",
+    "xs:mb-[-5rem]",
+    "sm:mb-[-5rem]",
+    "md:mb-[-16rem]",
+    // "lg:mb-[-16rem]",
+    "sm:h-[20rem]",
+    "md:h-[32rem]",
   )
+  return hide ? <></> : <div className={containerClasses}>{children}</div>
+}
 
 type ModelProps = {
   hide: boolean
 }
 
 const Model = ({ hide }: ModelProps) => {
-  // const group = useRef<any>()
   const { nodes, materials } = useGLTF("/assets/dude.glb") as GLTFResult
 
   const transition = useTransition(!hide, {

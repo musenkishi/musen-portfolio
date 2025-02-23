@@ -17,13 +17,13 @@ const Timeline: FC<TimelineProps> = ({ items }) => {
       {items.map((event, index) => (
         <div
           key={index}
-          className="flex w-md items-center justify-center gap-4 text-primary-foreground"
+          className="flex max-w-md items-center justify-center gap-4 text-primary-foreground"
         >
           <div className="w-14">
             <Badge variant="outline">{event.date}</Badge>
           </div>
           <div className="w-px h-full bg-primary/50" />
-          <div className="flex flex-1 w-sm">
+          <div className="flex flex-1 max-w-sm">
             <div className="flex flex-1 flex-col">
               <div className="text-base font-semibold">{event.title}</div>
               <div className="text-sm">{event.description}</div>
