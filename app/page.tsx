@@ -19,7 +19,7 @@ export default function Home() {
       <SectionGrid>
         <Section title="Me">
           <Paragraph>
-            I&apos;m a full-stack developer based in Uppsala with a passion for
+            I&apos;m a developer based in Uppsala with a passion for
             building all things user oriented. I have a lot of experience
             launching products, from planning and designing all the way to
             solving real-life problems with code. When not online, you can find
