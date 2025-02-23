@@ -35,17 +35,18 @@ type VoxelContainerProps = {
 
 const VoxelContainer = ({ children, hide }: VoxelContainerProps) => {
   const containerClasses = cn(
-    "relative",
-    "bg-secondary/25",
-    "m-auto",
-    "xs:mb-[-5rem]",
-    "sm:mb-[-5rem]",
-    "md:mb-[-16rem]",
-    // "lg:mb-[-16rem]",
-    "sm:h-[20rem]",
-    "md:h-[32rem]",
+    "h-72",
+    "-mb-24",
+    "md:h-96",
+    "md:-mb-36",
+    "lg:h-128",
+    "lg:-mb-48"
   )
-  return hide ? <></> : <div className={containerClasses}>{children}</div>
+  return hide ? (
+    <></>
+  ) : (
+    <div className={containerClasses}>{children}</div>
+  )
 }
 
 type ModelProps = {
