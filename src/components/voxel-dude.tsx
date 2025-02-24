@@ -1,11 +1,10 @@
 "use client"
 
-import { Skeleton } from "@/components/components/ui/skeleton"
 import { cn } from "@/components/lib/utils"
-import { a, useTransition } from "@react-spring/three"
-import { Html, OrbitControls, useGLTF } from "@react-three/drei"
+import { animated, useTransition } from "@react-spring/three"
+import { OrbitControls, useGLTF } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import React, { FC, ReactNode, Suspense } from "react"
+import { FC, ReactNode, Suspense } from "react"
 import * as THREE from "three"
 import { GLTF } from "three-stdlib"
 
@@ -18,14 +17,6 @@ type GLTFResult = GLTF & {
     DudeMaterial: THREE.MeshStandardMaterial
     ShadowMaterial: THREE.MeshStandardMaterial
   }
-}
-
-const VoxelLoader = () => {
-  return (
-    <Html center>
-      <Skeleton className="h-12 w-12 rounded-full" />
-    </Html>
-  )
 }
 
 type VoxelContainerProps = {
@@ -45,7 +36,7 @@ const VoxelContainer = ({ children, hide }: VoxelContainerProps) => {
   return hide ? (
     <></>
   ) : (
-    <div className={containerClasses}>{children}</div>
+    <div className={"-z-20 " + containerClasses}>{children}</div>
   )
 }
 
@@ -57,16 +48,16 @@ const Model = ({ hide }: ModelProps) => {
   const { nodes, materials } = useGLTF("/assets/dude.glb") as GLTFResult
 
   const transition = useTransition(!hide, {
-    from: { scale: 0 },
-    enter: () => ({ scale: 1 }),
-    leave: { scale: 0 },
+    from: { scale: 0, opacity: 0 },
+    enter: () => ({ scale: 1, opacity: 1 }),
+    leave: { scale: 0, opacity: 0 },
     config: { mass: 1, tension: 1000, friction: 300 },
   })
 
   return transition(
     (props, item) =>
       item && (
-        <a.group {...props}>
+        <animated.group {...props}>
           <mesh
             geometry={nodes.shadow.geometry}
             material={materials.ShadowMaterial}
@@ -78,7 +69,7 @@ const Model = ({ hide }: ModelProps) => {
             material={materials.DudeMaterial}
             rotation={[Math.PI / 2, 0, 0]}
           />
-        </a.group>
+        </animated.group>
       )
   )
 }
@@ -93,13 +84,14 @@ const VoxelModel: FC<{ hide: boolean }> = ({ hide }) => {
         style={{
           width: "100%",
           height: "100%",
+          position: "unset",
         }}
       >
         <ambientLight intensity={3.5} />
-        <Suspense fallback={<VoxelLoader />}>
+        <Suspense fallback={<></>}>
           <Model hide={hide} />
         </Suspense>
-        <OrbitControls autoRotate autoRotateSpeed={2} enableZoom={false} />
+        <OrbitControls autoRotate autoRotateSpeed={2} enableZoom={false}/>
       </Canvas>
     </VoxelContainer>
   )
