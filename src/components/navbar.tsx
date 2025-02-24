@@ -11,7 +11,7 @@ const NavBar: FC = () => {
       <div className="p-4 relative flex items-center justify-between h-14 w-full lg:max-w-240">
         <div className="flex items-center justify-between">
           <Logo />
-          <Button asChild variant="link">
+          <Button asChild variant="link" className="font-bold text-md">
             <PageLink href="/projects">Projects</PageLink>
           </Button>
         </div>
