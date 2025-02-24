@@ -7,9 +7,15 @@ import { ReactNode } from "react"
 type MyLinkProps = LinkProps & {
   children: ReactNode
   href: string
+  className?: string
 }
 
-export const PageLink = ({ children, href, ...props }: MyLinkProps) => {
+export const PageLink = ({
+  children,
+  href,
+  className,
+  ...props
+}: MyLinkProps) => {
   const router = useRouter()
 
   const sleep = (ms: number): Promise<void> => {
@@ -31,7 +37,12 @@ export const PageLink = ({ children, href, ...props }: MyLinkProps) => {
   }
 
   return (
-    <NextLink onClick={handleTransition} href={href} {...props}>
+    <NextLink
+      onClick={handleTransition}
+      href={href}
+      className={className}
+      {...props}
+    >
       {children}
     </NextLink>
   )

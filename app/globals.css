@@ -93,7 +93,7 @@
 
 .appear-in-animation {
   animation-name: fade-in-slide;
-  animation-duration: .25s;
+  animation-duration: 0.25s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: initial;
   animation-fill-mode: forwards;
@@ -108,7 +108,7 @@ main {
 .page-transition {
   opacity: 0;
   transform: translateY(2.5rem);
-  filter: blur(.25rem);
+  filter: blur(0.25rem);
 }
 
 .navbar-logo {

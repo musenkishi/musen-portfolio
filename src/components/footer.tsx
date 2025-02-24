@@ -15,7 +15,7 @@ const Footer: FC = async () => {
         &copy; {new Date().getFullYear()} Freddie Lust-Hed. All Rights Reserved.
       </div>
       <div className="text-xs">
-        Last updated:{" "}
+        Last updated{" "}
         <Suspense fallback="">
           <RelativeTime date={new Date(lastUpdated)} />
         </Suspense>
