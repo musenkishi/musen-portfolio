@@ -7,6 +7,16 @@ type SkillStackProps = {
 
 const SkillStack: FC<SkillStackProps> = ({ skills }) => {
   const badgeVariants: BadgeVariant[] = ["default", "secondary", "accent"]
+
+  const totalAppearDurationMs = 1000
+
+  const skillAnimationDelayThresholdMs = 100
+
+  const skillAnimationDelayMs = Math.min(
+    totalAppearDurationMs / skills.length,
+    skillAnimationDelayThresholdMs
+  )
+
   return (
     <div className="flex flex-row flex-wrap gap-2">
       {skills.map((skill, index) => {
@@ -22,7 +32,7 @@ const SkillStack: FC<SkillStackProps> = ({ skills }) => {
             className={"appear-in-animation"}
             style={{
               opacity: 0,
-              animationDelay: index * 50 + "ms",
+              animationDelay: index * skillAnimationDelayMs + "ms",
             }}
           >
             {skill}
