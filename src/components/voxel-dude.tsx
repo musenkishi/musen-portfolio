@@ -57,6 +57,7 @@ const Model = ({ hide }: ModelProps) => {
   return transition(
     (props, item) =>
       item && (
+        // @ts-expect-error strictly a typescript error. ignore this.
         <animated.group {...props}>
           <mesh
             geometry={nodes.shadow.geometry}
@@ -69,6 +70,7 @@ const Model = ({ hide }: ModelProps) => {
             material={materials.DudeMaterial}
             rotation={[Math.PI / 2, 0, 0]}
           />
+          {/* @ts-expect-error strictly a typescript error. ignore this. */}
         </animated.group>
       )
   )
@@ -91,7 +93,7 @@ const VoxelModel: FC<{ hide: boolean }> = ({ hide }) => {
         <Suspense fallback={<></>}>
           <Model hide={hide} />
         </Suspense>
-        <OrbitControls autoRotate autoRotateSpeed={2} enableZoom={false}/>
+        <OrbitControls autoRotate autoRotateSpeed={2} enableZoom={false} />
       </Canvas>
     </VoxelContainer>
   )
