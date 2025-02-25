@@ -3,11 +3,11 @@ import { getRepoLastUpdate } from "../external/github"
 import RelativeTime from "./relative-time"
 
 const Footer: FC = async () => {
-  const lastUpdated = await getRepoLastUpdate(
-    "musenkishi",
-    "musen-portfolio",
-    process.env.GITHUB_ACCESS_TOKEN
-  )
+  const lastUpdated = await getRepoLastUpdate({
+    owner: "musenkishi",
+    repository: "musen-portfolio",
+    token: process.env.GITHUB_ACCESS_TOKEN,
+  })
 
   return (
     <footer className="text-sm opacity-40 text-center py-8">
@@ -15,7 +15,7 @@ const Footer: FC = async () => {
         &copy; {new Date().getFullYear()} Freddie Lust-Hed. All Rights Reserved.
       </div>
       <div className="text-xs">
-        Last updated{" "}
+        Latest update:{" "}
         <Suspense fallback="">
           <RelativeTime date={new Date(lastUpdated)} />
         </Suspense>

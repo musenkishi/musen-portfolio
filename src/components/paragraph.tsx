@@ -5,7 +5,7 @@ type ParagraphProps = {
 }
 
 const Paragraph: FC<ParagraphProps> = ({ children }) => {
-  return <p className="indent-4 text-justify">{children}</p>
+  return <p className="text-justify">{children}</p>
 }
 
 export default Paragraph

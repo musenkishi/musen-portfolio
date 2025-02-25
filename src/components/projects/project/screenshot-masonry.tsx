@@ -26,7 +26,7 @@ const ScreenshotsMasonry: FC<ScreenshotsMasonryProps> = ({ images }) => {
           <ZoomableImage
             key={index}
             src={image}
-            alt={`screenshot ${index + 1}`}
+            alt={`Screenshot ${index + 1}`}
           />
         )
       })}

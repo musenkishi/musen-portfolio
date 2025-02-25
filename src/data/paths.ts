@@ -1,4 +1,4 @@
-export enum ProjectPath {
+export enum ProjectID {
   TALE_TRAVELER = "tale-traveler",
   BACKSPACE = "backspace",
   WALLY = "wally",

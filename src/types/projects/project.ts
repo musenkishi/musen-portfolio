@@ -1,16 +1,33 @@
+import { ProjectID } from "@/src/data/paths"
+import { RepositoryData } from "@/src/external/github"
 import { StaticImageData } from "next/image"
-import { ReactNode } from "react"
 
-export type MetaData = {
-    label: string,
-    value: string | ReactNode
+export type MetaLink = {
+  href: string
+  label: string
+  disabled?: boolean
+  tooltip?: string
+}
+
+export type StaticMetaData = {
+  platform: string
+  stack: string[]
+  source?: MetaLink[]
+  download?: MetaLink[]
+  link?: MetaLink[]
+  repository?: RepositoryData
+}
+
+export type Section = {
+  title: string
+  markdown: string
 }
 
 export type Project = {
-    badge: string
-    title: string
-    icon: StaticImageData | ReactNode
-    metadata: MetaData[]
-    description: ReactNode
-    screenshots: StaticImageData[]
+  id: ProjectID
+  badge: string
+  title: string
+  metadata: StaticMetaData
+  description: Section[]
+  screenshots: StaticImageData[]
 }

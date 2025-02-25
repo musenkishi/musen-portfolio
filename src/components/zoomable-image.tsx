@@ -14,6 +14,9 @@ type ZoomableImageProps = {
 }
 
 const ZoomableImage: FC<ZoomableImageProps> = ({ src, alt }) => {
+  {
+    /* <div className="relative h-[calc(100vh-220px)] w-full overflow-clip rounded-md bg-transparent shadow-md"> */
+  }
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -36,9 +39,11 @@ const ZoomableImage: FC<ZoomableImageProps> = ({ src, alt }) => {
           />
         </div>
       </DialogTrigger>
-      <DialogContent className="max-w-7xl border-0 bg-transparent p-0">
-        <DialogTitle />
-        <div className="relative h-[calc(100vh-220px)] w-full overflow-clip rounded-md bg-transparent shadow-md">
+      <DialogContent className="max-w-7xl border-1 border-primary-foreground/50 border-dashed ">
+        <DialogTitle>{alt}</DialogTitle>
+        <div
+          className={`relative h-[calc(100vh-15rem)] w-full overflow-clip rounded-md bg-transparent shadow-md`}
+        >
           <Image
             src={src}
             fill
