@@ -64,7 +64,7 @@ const BioTimeline: FC = () => {
       description: (
         <>
           at Sokigo for the{" "}
-          <InlineLink href="https://sokigo.com/produkter/plandirekt">
+          <InlineLink href="https://sokigo.com/produkter/plandirekt" isExternal>
             PlanDirekt
           </InlineLink>{" "}
           product
@@ -76,7 +76,10 @@ const BioTimeline: FC = () => {
       title: "Lead front-end developer",
       description: (
         <>
-          at <InlineLink href="https://www.viatel.se/">Viatel</InlineLink>
+          at{" "}
+          <InlineLink href="https://www.viatel.se/" isExternal>
+            Viatel
+          </InlineLink>
         </>
       ),
     },
@@ -85,7 +88,10 @@ const BioTimeline: FC = () => {
       title: "Android developer",
       description: (
         <>
-          at <InlineLink href="https://www.framna.com/">Framna</InlineLink>
+          at{" "}
+          <InlineLink href="https://www.framna.com/" isExternal>
+            Framna
+          </InlineLink>
         </>
       ),
     },

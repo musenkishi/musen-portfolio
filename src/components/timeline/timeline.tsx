@@ -19,7 +19,7 @@ const Timeline: FC<TimelineProps> = ({ items }) => {
           key={index}
           className="flex max-w-md items-center justify-center gap-4 text-primary-foreground"
         >
-          <div className="w-14 flex flex-col items-end">
+          <div className="w-14 flex flex-col items-center">
             <Badge variant="outline">{event.date}</Badge>
           </div>
           <div className="w-px h-full bg-primary/50" />
