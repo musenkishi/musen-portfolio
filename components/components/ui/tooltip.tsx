@@ -63,6 +63,7 @@ function TooltipContent({
           "max-w-sm",
           "rounded-md",
           "px-3",
+          "ms-2",
           "py-1.5",
           "text-xs",
           className
@@ -70,13 +71,14 @@ function TooltipContent({
         {...props}
       >
         {children}
-        <TooltipPrimitive.Arrow
+        <div
           className={cn(
             "bg-" + variant,
-            "fill-" + variant,
+            "-mb-2",
             "z-50",
             "size-2.5",
-            "translate-y-[calc(-50%_-_2px)]",
+            "translate-y-[calc(-50%_-_0.4rem)]",
+            "-translate-x-4",
             "rotate-45",
             "rounded-[2px]"
           )}
