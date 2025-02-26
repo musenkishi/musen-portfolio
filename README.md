@@ -11,12 +11,14 @@ This is the source code for [musen.dev](https://www.musen.dev), my personal port
 ## Running Locally
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/musenkishi/musen-portfolio.git
 cd musen-portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -28,6 +30,7 @@ bun install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 # or
@@ -45,9 +48,9 @@ bun dev
 1. Clone the repository as shown above
 
 2. Create a `docker-compose.yml` file in the root directory:
+
 ```yaml
-# filepath: /home/musenkishi/git/musen-portfolio/docker-compose.yml
-version: '3.8'
+version: "3.8"
 services:
   portfolio:
     build:
@@ -59,6 +62,7 @@ services:
 ```
 
 3. Start the container:
+
 ```bash
 docker compose up -d
 ```
@@ -70,6 +74,7 @@ docker compose up -d
 The site will auto-update as you make changes to the files. The main page can be edited at `app/page.tsx`.
 
 This project uses:
+
 - [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) with [Geist](https://vercel.com/font)
 - GitHub Actions for CI/CD
 - GitHub Container Registry for Docker images
