@@ -4,8 +4,9 @@ import SkillStack from "@/src/components/root/skill-stack"
 import Tooltip from "@/src/components/tooltip"
 import { isRepositoryData, RepositoryData } from "@/src/external/github"
 import { MetaLink, StaticMetaData } from "@/src/types/projects/project"
-import { FC } from "react"
+import { FC, Suspense } from "react"
 import MetaDataRelativeTime from "./metadata-relative-time"
+import { Skeleton } from "@/components/components/ui/skeleton"
 
 type MetadataProps = {
   metadata: StaticMetaData
@@ -91,7 +92,11 @@ const MetaValue: FC<MetaValueProps> = ({ value }) => {
       return <MetaLinkComponent links={value} />
     }
   } else if (isRepositoryData(value)) {
-    return <MetaDataRelativeTime data={value} />
+    return (
+      <Suspense fallback={<Skeleton className="w-20 h-3 rounded-xs" />}>
+        <MetaDataRelativeTime data={value} />
+      </Suspense>
+    )
   } else {
     return <span>{value as string}</span>
   }
