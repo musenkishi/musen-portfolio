@@ -2,7 +2,8 @@
 
 import { cn } from "@/components/lib/utils"
 import { animated, useTransition } from "@react-spring/three"
-import { OrbitControls, useGLTF } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei/core/OrbitControls"
+import { useGLTF } from "@react-three/drei/core"
 import { Canvas } from "@react-three/fiber"
 import { FC, ReactNode, Suspense } from "react"
 import * as THREE from "three"
