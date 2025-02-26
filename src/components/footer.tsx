@@ -6,7 +6,6 @@ const Footer: FC = async () => {
   const lastUpdated = await getRepoLastUpdate({
     owner: "musenkishi",
     repository: "musen-portfolio",
-    token: process.env.GITHUB_ACCESS_TOKEN,
   })
 
   return (

@@ -2,6 +2,7 @@ import screenshot1 from "@/assets/images/projects/tale-traveler-screenshot-1.png
 import screenshot2 from "@/assets/images/projects/tale-traveler-screenshot-2.png"
 import { Project } from "@/src/types/projects/project"
 import { ProjectID } from "../paths"
+import '@/src/util/envConfig'
 
 const projectTaleTraveler: Project = {
   id: ProjectID.TALE_TRAVELER,
