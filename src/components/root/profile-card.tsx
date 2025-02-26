@@ -7,7 +7,7 @@ const MyAvatar: FC = () => {
     <Image
       src={profilePic}
       alt="Profile Picture"
-      className="shrink-0 rounded-full size-26 border-3 border-secondary-300"
+      className="shrink-0 rounded-full size-26 border-3 border-secondary-500"
     />
   )
 }

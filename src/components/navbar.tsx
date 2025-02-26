@@ -7,7 +7,7 @@ import { RiGithubFill } from "react-icons/ri"
 
 const NavBar: FC = () => {
   return (
-    <nav className="fixed bg-gray-800/50 backdrop-blur-sm z-10 w-full flex items-center justify-center">
+    <nav className="fixed bg-secondary-600/25 dark:bg-primary-800/25 backdrop-blur-sm z-10 w-full flex items-center justify-center">
       <div className="p-4 relative flex items-center justify-between h-14 w-full lg:max-w-240">
         <div className="flex items-center justify-between">
           <Logo />
@@ -16,7 +16,7 @@ const NavBar: FC = () => {
           </Button>
         </div>
           <SocialLink
-            href="https://github.com/musenkishi/musenkishi-homepage"
+            href="https://github.com/musenkishi/musen-portfolio"
             icon={<RiGithubFill />}
             label="View source"
             hideLabelOnSmall

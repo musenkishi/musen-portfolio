@@ -4,7 +4,7 @@ import NextLink, { LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
 import { ReactNode } from "react"
 
-type MyLinkProps = LinkProps & {
+type PageLinkProps = LinkProps & {
   children: ReactNode
   href: string
   className?: string
@@ -15,7 +15,7 @@ export const PageLink = ({
   href,
   className,
   ...props
-}: MyLinkProps) => {
+}: PageLinkProps) => {
   const router = useRouter()
 
   const sleep = (ms: number): Promise<void> => {

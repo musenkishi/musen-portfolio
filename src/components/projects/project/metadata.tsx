@@ -117,7 +117,7 @@ const Metadata: FC<MetadataProps> = ({ metadata }) => {
       )}
       {metadata.link && <MetaRow badge="Link" value={metadata.link} />}
       {metadata.repository && (
-        <MetaRow badge="Last updated" value={metadata.repository} />
+        <MetaRow badge="Last update" value={metadata.repository} />
       )}
     </div>
   )

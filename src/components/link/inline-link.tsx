@@ -16,7 +16,7 @@ const InlineLink: FC<InlineLinkProps> = ({
   children,
 }) => {
   return (
-    <span className="inline font-bold hover:underline text-secondary-700 dark:text-secondary-300">
+    <span className="inline font-bold hover:underline text-secondary-700 dark:text-secondary-400">
       <Link href={href} target={isExternal ? "_blank" : "_self"}>
         <span className="inline-flex flex-row items-center gap-1">
           {children} {showExternalIcon && <RiExternalLinkFill />}

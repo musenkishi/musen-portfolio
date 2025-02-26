@@ -2,22 +2,22 @@
 @plugin 'tailwindcss-animate';
 
 :root {
-  --primary-color: oklch(94.74% 0.0249 263.33);
-  --primary-color-foreground: oklch(65.37% 0.1845 261.39);
-  --secondary-color: oklch(93.09% 0.0434 59.4);
-  --secondary-color-foreground: oklch(70.76% 0.19745 46.4558);
-  --accent-color: oklch(90.26% 0.0529 5.02);
-  --accent-color-foreground: oklch(65.86% 0.231 15.83);
+  --primary-color: #43a3d2;
+  --primary-color-foreground: #e2f5ff;
+  --secondary-color: #f18b53; 
+  --secondary-color-foreground: #ffffff;
+  --accent-color: #828c65;
+  --accent-color-foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: oklch(65.37% 0.1845 261.39);
-    --primary-color-foreground: oklch(100% 0 0);
-    --secondary-color: oklch(70.76% 0.19745 46.4558);
-    --secondary-color-foreground: oklch(93.09% 0.0434 59.4);
-    --accent-color: oklch(65.86% 0.231 15.83);
-    --accent-color-foreground: oklch(100% 0 0);
+    --primary-color: #226a8d;
+    --primary-color-foreground: #aad5eb;
+    --secondary-color: #f18b53;
+    --secondary-color-foreground: #fdeae0;
+    --accent-color: #828c65;
+    --accent-color-foreground: #e1e4d9;
   }
 }
 
@@ -35,48 +35,48 @@
   --color-accent: var(--accent-color);
   --color-accent-foreground: var(--accent-color-foreground);
 
-  --color-primary-50: oklch(100% 0 0);
-  --color-primary-100: oklch(100% 0 0);
-  --color-primary-200: oklch(94.74% 0.0249 263.33);
-  --color-primary-300: oklch(84.56% 0.076153 262.6169);
-  --color-primary-400: oklch(74.65% 0.1301 261.99);
-  --color-primary-500: oklch(65.37% 0.1845 261.39);
-  --color-primary-600: oklch(57.37% 0.234 261.56);
-  --color-primary-700: oklch(50.13% 0.2332 262.08);
-  --color-primary-800: oklch(41.89% 0.1909 261.8);
-  --color-primary-900: oklch(33.23% 0.146 261.26);
-  --color-primary-950: oklch(28.75% 0.1229 260.82);
-  --color-secondary-50: oklch(96.59% 0.022 63.21);
-  --color-secondary-100: oklch(93.09% 0.0434 59.4);
-  --color-secondary-200: oklch(86.52% 0.088 58.45);
-  --color-secondary-300: oklch(80.62% 0.1312 57.4);
-  --color-secondary-400: oklch(75.24% 0.1691 53.51);
-  --color-secondary-500: oklch(70.76% 0.19745 46.4558);
-  --color-secondary-600: oklch(60.05% 0.165588 47.1967);
-  --color-secondary-700: oklch(48.84% 0.1321 48.43);
-  --color-secondary-800: oklch(36.78% 0.0973 49.96);
-  --color-secondary-900: oklch(23.85% 0.0583 56.02);
-  --color-secondary-950: oklch(16.86% 0.0378 65.14);
-  --color-accent-50: oklch(100% 0 0);
-  --color-accent-100: oklch(100% 0 0);
-  --color-accent-200: oklch(90.26% 0.0529 5.02);
-  --color-accent-300: oklch(80.26% 0.1172 7.35);
-  --color-accent-400: oklch(71.81% 0.1812 10.4);
-  --color-accent-500: oklch(65.86% 0.231 15.83);
-  --color-accent-600: oklch(63.19% 0.2537 22.97);
-  --color-accent-700: oklch(54.3% 0.2192 23.11);
-  --color-accent-800: oklch(44.15% 0.1779 22.2);
-  --color-accent-900: oklch(33.38% 0.1341 20.37);
-  --color-accent-950: oklch(27.76% 0.1114 19.39);
+  --color-primary-50: #aad5eb;
+  --color-primary-100: #95cbe6;
+  --color-primary-200: #6cb7dc;
+  --color-primary-300: #43a3d2;
+  --color-primary-400: #2c89b6;
+  --color-primary-500: #226a8d;
+  --color-primary-600: #184b64;
+  --color-primary-700: #0e2c3b;
+  --color-primary-800: #040d12;
+  --color-primary-900: #000000;
+  --color-primary-950: #000000;
+  --color-secondary-50: #ffffff;
+  --color-secondary-100: #ffffff;
+  --color-secondary-200: #fdeae0;
+  --color-secondary-300: #f9cbb1;
+  --color-secondary-400: #f5ab82;
+  --color-secondary-500: #f18b53;
+  --color-secondary-600: #ed6b24;
+  --color-secondary-700: #cd5411;
+  --color-secondary-800: #9e400d;
+  --color-secondary-900: #6f2d09;
+  --color-secondary-950: #572407;
+  --color-accent-50: #edeee8;
+  --color-accent-100: #e1e4d9;
+  --color-accent-200: #cacebc;
+  --color-accent-300: #b2b99e;
+  --color-accent-400: #9ba480;
+  --color-accent-500: #828c65;
+  --color-accent-600: #666e50;
+  --color-accent-700: #4b513a;
+  --color-accent-800: #2f3325;
+  --color-accent-900: #141510;
+  --color-accent-950: #060705;
 }
 
 @layer components {
   body {
     @apply antialiased;
-    @apply bg-primary-300;
-    @apply text-primary-950;
-    @apply dark:bg-primary-950;
-    @apply dark:text-primary-100;
+    @apply bg-secondary-300;
+    @apply text-secondary-950;
+    @apply dark:bg-primary-700;
+    @apply dark:text-white;
   }
 }
 
