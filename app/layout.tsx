@@ -5,6 +5,7 @@ import NavBar from "@/src/components/navbar"
 import Head from "next/head"
 import VoxelModel from "@/src/components/voxel-dude"
 import Footer from "@/src/components/footer"
+import { ViewTransitions } from "next-view-transitions"
 
 const fontSans = Quicksand({
   variable: "--font-quicksand",
@@ -28,22 +29,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html className={`${fontSans.variable} ${fontMono.variable}`}>
-      <Head>
-        <link
-          rel="icon"
-          href="/icon?<generated>"
-          type="image/<generated>"
-          sizes="<generated>"
-        />
-      </Head>
-      <body>
-        <NavBar />
-        <div className="pt-18" />
-        <VoxelModel hide={false} />
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html className={`${fontSans.variable} ${fontMono.variable}`}>
+        <Head>
+          <link
+            rel="icon"
+            href="/icon?<generated>"
+            type="image/<generated>"
+            sizes="<generated>"
+          />
+        </Head>
+        <body>
+          <NavBar />
+          <div className="pt-18" />
+          <VoxelModel hide={false} />
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }

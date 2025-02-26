@@ -4,7 +4,7 @@
 :root {
   --primary-color: #43a3d2;
   --primary-color-foreground: #e2f5ff;
-  --secondary-color: #f18b53; 
+  --secondary-color: #f18b53;
   --secondary-color-foreground: #ffffff;
   --accent-color: #828c65;
   --accent-color-foreground: #ffffff;
@@ -91,6 +91,17 @@
   }
 }
 
+@keyframes fade-out-slide {
+  0% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
 .appear-in-animation {
   animation-name: fade-in-slide;
   animation-duration: 0.25s;
@@ -100,9 +111,27 @@
 }
 
 main {
-  transition-property: opacity, transform, filter;
+  view-transition-name: portfolio-main;
+  transition-property: opacity, transform, filter, blur;
   transition-timing-function: ease-in-out;
   transition-duration: 500ms;
+}
+
+::view-transition-group(root) {
+  animation: none;
+}
+
+::view-transition-old(portfolio-main) {
+  animation-name: fade-out-slide;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: initial;
+}
+::view-transition-new(portfolio-main) {
+  animation-name: fade-in-slide;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: initial;
 }
 
 .page-transition {

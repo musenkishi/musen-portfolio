@@ -1,7 +1,7 @@
 "use client"
 
-import NextLink, { LinkProps } from "next/link"
-import { useRouter } from "next/navigation"
+import { Link } from "next-view-transitions"
+import { LinkProps } from "next/link"
 import { ReactNode } from "react"
 
 type PageLinkProps = LinkProps & {
@@ -16,34 +16,9 @@ export const PageLink = ({
   className,
   ...props
 }: PageLinkProps) => {
-  const router = useRouter()
-
-  const sleep = (ms: number): Promise<void> => {
-    return new Promise((resolve) => setTimeout(resolve, ms))
-  }
-
-  const handleTransition = async (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
-    e.preventDefault()
-
-    const main = document.querySelector("main")
-
-    main?.classList.add("page-transition")
-    await sleep(250)
-    router.push(href)
-    await sleep(250)
-    main?.classList.remove("page-transition")
-  }
-
   return (
-    <NextLink
-      onClick={handleTransition}
-      href={href}
-      className={className}
-      {...props}
-    >
+    <Link href={href} className={className} {...props}>
       {children}
-    </NextLink>
+    </Link>
   )
 }
