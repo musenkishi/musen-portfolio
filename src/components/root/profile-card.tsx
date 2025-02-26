@@ -14,7 +14,7 @@ const MyAvatar: FC = () => {
 
 const ProfileCard: FC = () => {
   return (
-    <div className={"flex flex-wrap gap-12 justify-center items-center"}>
+    <div className={"opacity-0 appear-in-animation delay-150 flex flex-wrap gap-12 justify-center items-center"}>
       <div>
         <span className="text-4xl font-bold grow-0">Freddie Lust-Hed</span>
         <p>Digital Craftsman</p>
