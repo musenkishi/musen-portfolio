@@ -14,9 +14,9 @@ export const isRepositoryData = (obj: unknown): obj is RepositoryData => {
   )
 }
 
-export async function getRepoLastUpdate(
+export const getRepoLastUpdate = async (
   repositoryData: RepositoryData
-): Promise<string> {
+): Promise<string> => {
   const { owner, repository: reposority, token } = repositoryData
   const headers: Record<string, string> = {
     "User-Agent": "Node.js musen.dev token",
