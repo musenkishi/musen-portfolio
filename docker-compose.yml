@@ -3,7 +3,7 @@ services:
     container_name: portfolio
     image: ghcr.io/musenkishi/musen-portfolio:main
     ports:
-      - ${PORT}:3000
+      - ${HOST_PORT}:3000
     restart: unless-stopped
     deploy:
       resources:
