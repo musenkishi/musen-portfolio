@@ -45,29 +45,27 @@ bun dev
 
 ## Running with Docker Compose
 
-1. Clone the repository as shown above
-
-2. Create a `docker-compose.yml` file in the root directory:
+1. Create a `docker-compose.yml` file:
 
 ```yaml
-version: "3.8"
 services:
   portfolio:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    container_name: portfolio
+    image: ghcr.io/musenkishi/musen-portfolio:main
     ports:
-      - "3000:3000"
+      - ${HOST_PORT}:3000
     restart: unless-stopped
+    env_file:
+      - stack.env
 ```
 
-3. Start the container:
+2. Start the container:
 
 ```bash
 docker compose up -d
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
 
 ## Development
 
@@ -75,6 +73,9 @@ The site will auto-update as you make changes to the files. The main page can be
 
 This project uses:
 
+- [Next.js](https://nextjs.org)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [shadcn/ui](https://ui.shadcn.com)
 - [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) with [Geist](https://vercel.com/font)
 - GitHub Actions for CI/CD
 - GitHub Container Registry for Docker images
