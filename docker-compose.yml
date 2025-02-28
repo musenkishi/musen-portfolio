@@ -1,19 +1,17 @@
 services:
   portfolio:
     container_name: portfolio
-    image: musenkishi/portfolio:latest
-    # user: ${PUID}:${PGID} # optional
-    # volumes:
-      # - data:/data
-    # env_file:
-      # - .env
-    # environment:
-    #   - GITHUB_ACCESS_TOKEN="ghp_ABC123"
-    env_file:
-      - .env.local
+    image: ghcr.io/musenkishi/musen-portfolio:main
     ports:
       - 3000:3000
     restart: unless-stopped
-
-# volumes:
-  # data:
+    deploy:
+      resources:
+          limits:
+            cpus: 2.0
+            memory: 2048M
+          reservations:
+            cpus: 0.05
+            memory: 128M
+    env_file:
+      - stack.env
