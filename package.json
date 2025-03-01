@@ -10,16 +10,16 @@
   },
   "dependencies": {
     "@github/relative-time-element": "^4.4.5",
-    "@next/env": "^15.1.7",
+    "@next/env": "^15.2.0",
     "@radix-ui/react-avatar": "^1.1.3",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-separator": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.8",
     "@react-spring/three": "^9.7.5",
-    "@react-three/drei": "^10.0.2",
+    "@react-three/drei": "^10.0.3",
     "@react-three/fiber": "^9.0.4",
-    "@rive-app/react-canvas-lite": "^4.18.2",
+    "@rive-app/react-canvas-lite": "^4.18.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.5.2",
@@ -37,13 +37,13 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
     "@tailwindcss/postcss": "^4.0.9",
-    "@types/node": "^22.13.5",
+    "@types/node": "^22.13.8",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "eslint": "^9.21.0",
     "eslint-config-next": "15.2.0-canary.64",
     "null-loader": "^4.0.1",
     "tailwindcss": "^4.0.9",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   }
 }
