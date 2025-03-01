@@ -21,7 +21,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN bun run build
 
 # Production image, copy all the files and run next
-FROM base AS runner
+FROM oven/bun:slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 # Disable telemetry
