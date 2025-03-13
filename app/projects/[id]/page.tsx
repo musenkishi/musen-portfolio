@@ -14,8 +14,6 @@ import projectsMap from "@/src/data/projects-all"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 
-export const revalidate = 3600
-
 export default async function Page({
   params,
 }: {

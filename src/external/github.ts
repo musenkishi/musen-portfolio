@@ -29,7 +29,7 @@ export const getRepoLastUpdate = async (
 
   const response = await fetch(
     `https://api.github.com/repos/${owner}/${reposority}/commits`,
-    { headers }
+    { headers, next: { revalidate: 3600 } }
   )
 
   if (!response.ok) {
