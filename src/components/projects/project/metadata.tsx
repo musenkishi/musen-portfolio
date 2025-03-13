@@ -5,7 +5,7 @@ import Tooltip from "@/src/components/tooltip"
 import { isRepositoryData, RepositoryData } from "@/src/external/github"
 import { MetaLink, StaticMetaData } from "@/src/types/projects/project"
 import { FC, Suspense } from "react"
-import MetaDataRelativeTime from "./metadata-relative-time"
+import GitHubRelativeTime from "./metadata-relative-time"
 import { Skeleton } from "@/components/components/ui/skeleton"
 
 type MetadataProps = {
@@ -94,7 +94,7 @@ const MetaValue: FC<MetaValueProps> = ({ value }) => {
   } else if (isRepositoryData(value)) {
     return (
       <Suspense fallback={<Skeleton className="w-20 h-3 rounded-xs" />}>
-        <MetaDataRelativeTime data={value} />
+        <GitHubRelativeTime data={value} />
       </Suspense>
     )
   } else {

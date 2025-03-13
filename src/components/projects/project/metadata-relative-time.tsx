@@ -6,11 +6,11 @@ type MetaDataRelativeTimeProps = {
   data: RepositoryData
 }
 
-const MetaDataRelativeTime: FC<MetaDataRelativeTimeProps> = async ({
+const GitHubRelativeTime: FC<MetaDataRelativeTimeProps> = async ({
   data,
 }) => {
   const lastUpdated = await getRepoLastUpdate(data)
   return <RelativeTime date={new Date(lastUpdated)} />
 }
 
-export default MetaDataRelativeTime
+export default GitHubRelativeTime
