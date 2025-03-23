@@ -1,9 +1,4 @@
-import {
-  SimpleBulletList,
-  SimpleInlineLink,
-  StrongText,
-} from "@/src/components/markdown-components"
-import Paragraph from "@/src/components/paragraph"
+import { MarkDown } from "@/src/components/markdown-components"
 import Metadata from "@/src/components/projects/project/metadata"
 import NavBreadCrumb from "@/src/components/projects/project/nav-breadcrumb"
 import ProjectLogo from "@/src/components/projects/project/project-logo"
@@ -12,7 +7,6 @@ import RootFlex from "@/src/components/root/root-flex"
 import Section from "@/src/components/section/section"
 import projectsMap from "@/src/data/projects-all"
 import { notFound } from "next/navigation"
-import ReactMarkdown from "react-markdown"
 
 export default async function Page({
   params,
@@ -36,16 +30,7 @@ export default async function Page({
         {project.description.map((section, index) => {
           return (
             <Section key={index} title={section.title}>
-              <ReactMarkdown
-                components={{
-                  ul: SimpleBulletList,
-                  p: Paragraph,
-                  strong: StrongText,
-                  a: SimpleInlineLink,
-                }}
-              >
-                {section.markdown}
-              </ReactMarkdown>
+              <MarkDown content={section.markdown} />
             </Section>
           )
         })}
