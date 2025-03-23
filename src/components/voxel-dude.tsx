@@ -2,23 +2,24 @@
 
 import { cn } from "@/components/lib/utils"
 import { animated, useTransition } from "@react-spring/three"
-import { OrbitControls } from "@react-three/drei/core/OrbitControls"
 import { useGLTF } from "@react-three/drei/core"
-import { Canvas } from "@react-three/fiber"
+import { OrbitControls } from "@react-three/drei/core/OrbitControls"
+import { Canvas, ObjectMap } from "@react-three/fiber"
 import { FC, ReactNode, Suspense } from "react"
 import * as THREE from "three"
 import { GLTF } from "three-stdlib"
 
-type GLTFResult = GLTF & {
-  nodes: {
-    dude: THREE.Mesh
-    shadow: THREE.Mesh
+type GLTFResult = GLTF &
+  ObjectMap & {
+    nodes: {
+      dude: THREE.Mesh
+      shadow: THREE.Mesh
+    }
+    materials: {
+      DudeMaterial: THREE.MeshStandardMaterial
+      ShadowMaterial: THREE.MeshStandardMaterial
+    }
   }
-  materials: {
-    DudeMaterial: THREE.MeshStandardMaterial
-    ShadowMaterial: THREE.MeshStandardMaterial
-  }
-}
 
 type VoxelContainerProps = {
   children: ReactNode
