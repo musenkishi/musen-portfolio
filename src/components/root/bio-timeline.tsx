@@ -20,7 +20,11 @@ const BioTimeline: FC = () => {
       title: "Lead Android developer",
       description: (
         <>
-          at apegroup with big clients such as{" "}
+          at{" "}
+          <InlineLink href="https://www.umain.com" isExternal>
+            apegroup
+          </InlineLink>{" "}
+          with big clients such as{" "}
           <InlineLink
             href="https://play.google.com/store/apps/details?id=se.ica.handla"
             isExternal
@@ -52,7 +56,7 @@ const BioTimeline: FC = () => {
       description: (
         <>
           at{" "}
-          <InlineLink href="https://doist.com/" isExternal>
+          <InlineLink href="https://doist.com" isExternal>
             Doist
           </InlineLink>
         </>
@@ -77,7 +81,7 @@ const BioTimeline: FC = () => {
       description: (
         <>
           at{" "}
-          <InlineLink href="https://www.viatel.se/" isExternal>
+          <InlineLink href="https://www.viatel.se" isExternal>
             Viatel
           </InlineLink>
         </>
@@ -89,8 +93,20 @@ const BioTimeline: FC = () => {
       description: (
         <>
           at{" "}
-          <InlineLink href="https://www.framna.com/" isExternal>
-            Framna
+          <InlineLink href="https://bontouch.com" isExternal>
+            Bontouch
+          </InlineLink>
+        </>
+      ),
+    },
+    {
+      date: "2025",
+      title: "Android developer",
+      description: (
+        <>
+          at{" "}
+          <InlineLink href="https://www.sj.se" isExternal>
+            SJ
           </InlineLink>
         </>
       ),
