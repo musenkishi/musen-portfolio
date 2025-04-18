@@ -111,7 +111,9 @@ const BioTimeline: FC = () => {
         </>
       ),
     },
-  ]
+  ].sort(
+    (a, b) => parseInt(b.date) - parseInt(a.date)
+  )
 
   return <Timeline items={items} />
 }
