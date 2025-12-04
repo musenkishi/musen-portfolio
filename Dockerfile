@@ -1,4 +1,4 @@
-FROM oven/bun:latest AS base
+FROM oven/bun:1.2 AS base
 # Install dependencies only when needed
 FROM base AS deps
 WORKDIR /app
@@ -21,7 +21,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN bun run build
 
 # Production image, copy all the files and run next
-FROM oven/bun:slim AS runner
+FROM oven/bun:1.2-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 # Disable telemetry
