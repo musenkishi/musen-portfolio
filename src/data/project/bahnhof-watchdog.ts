@@ -25,7 +25,7 @@ const projectBahnhofWatchdog: Project = {
     {
       title: "Bahnhof Watchdog",
       markdown: `
-Bahnhof Watchdog is a Node.js service that periodically checks for current and planned outages in your area from the ISP named Bahnhof. It also checks if your current subscription is priced higher than what is listed on their website. Notifications are sent via a Discord webhook or via email (Gmail only) if any issues are found.
+Bahnhof Watchdog is a Node.js service that periodically checks for current and planned outages in your area from the ISP named Bahnhof. It also checks if your current subscription is priced higher than what is listed on their website. Notifications are sent through a webhook and logged if any issues are found.
 
 - Monitors for current and planned outages based on your postal code.
 - Compares your current subscription price with the listed price on Bahnhof's website.
