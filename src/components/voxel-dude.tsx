@@ -59,7 +59,6 @@ const Model = ({ hide }: ModelProps) => {
   return transition(
     (props, item) =>
       item && (
-        // @ts-expect-error strictly a typescript error. ignore this.
         <animated.group {...props}>
           <mesh
             geometry={nodes.shadow.geometry}
@@ -72,7 +71,6 @@ const Model = ({ hide }: ModelProps) => {
             material={materials.DudeMaterial}
             rotation={[Math.PI / 2, 0, 0]}
           />
-          {/* @ts-expect-error strictly a typescript error. ignore this. */}
         </animated.group>
       )
   )
