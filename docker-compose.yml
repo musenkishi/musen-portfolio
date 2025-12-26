@@ -3,14 +3,12 @@ x-hardening: &hardening
   user: 1000:1000            # Run the container as a non‑root user to reduce privilege exposure.
   tty: false                 # Disable TTY allocation since services don’t need interactive terminals.
   stdin_open: false          # Prevent interactive STDIN to avoid unnecessary attack surface.
-  read_only: true            # Make the root filesystem immutable to block tampering and persistence.
   security_opt:
     - no-new-privileges:true # Block privilege escalation even if binaries have setuid/setgid bits.
   cap_drop:
     - ALL                    # Remove all Linux capabilities to enforce strict least‑privilege.
   tmpfs:
     - /tmp:rw,noexec,nosuid,nodev,size=512m  # Provide a safe in‑memory /tmp with execution and device creation blocked.
-    - /app/.next/cache:rw,noexec,nosuid,nodev,size=256m  # Safe in‑memory cache directory.
   pids_limit: 512            # Limit the number of processes to prevent fork bombs or runaway workloads.
   mem_limit: 512mb           # Cap memory usage to contain memory exhaustion attacks.
   cpus: 2                    # Restrict CPU usage so the container can't starve the host.
