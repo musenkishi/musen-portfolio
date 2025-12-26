@@ -1,17 +1,31 @@
+
+x-hardening: &hardening
+  user: 1000:1000            # Run the container as a non‑root user to reduce privilege exposure.
+  tty: false                 # Disable TTY allocation since services don’t need interactive terminals.
+  stdin_open: false          # Prevent interactive STDIN to avoid unnecessary attack surface.
+  read_only: true            # Make the root filesystem immutable to block tampering and persistence.
+  security_opt:
+    - no-new-privileges:true # Block privilege escalation even if binaries have setuid/setgid bits.
+  cap_drop:
+    - ALL                    # Remove all Linux capabilities to enforce strict least‑privilege.
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,nodev,size=512m  # Provide a safe in‑memory /tmp with execution and device creation blocked.
+  pids_limit: 512            # Limit the number of processes to prevent fork bombs or runaway workloads.
+  mem_limit: 512mb           # Cap memory usage to contain memory exhaustion attacks.
+  cpus: 2                    # Restrict CPU usage so the container can't starve the host.
+  logging:
+    driver: json-file        # Use the default JSON log driver with rotation to prevent disk flooding.
+    options:
+      max-size: "50m"        # Rotate logs when they reach 50 MB.
+      max-file: "5"          # Keep at most 5 rotated log files.
+
 services:
   portfolio:
     container_name: portfolio
     image: ghcr.io/musenkishi/musen-portfolio:main
+    <<: *hardening
     ports:
       - ${HOST_PORT}:3000
     restart: unless-stopped
-    deploy:
-      resources:
-          limits:
-            cpus: 0.5
-            memory: 2048M
-          reservations:
-            cpus: 0.05
-            memory: 128M
     env_file:
       - stack.env
