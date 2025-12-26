@@ -1,4 +1,8 @@
 FROM oven/bun:1.2 AS base
+
+# Create a non-root user and switch to it
+RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
+
 # Install dependencies only when needed
 FROM base AS deps
 WORKDIR /app
@@ -29,9 +33,11 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
-
 # Copy the public directory to include static assets
 COPY --from=builder /app/public ./public
+
+RUN chown -R appuser:appgroup /app
+USER appuser
 
 EXPOSE 3000
 ENV PORT=3000
