@@ -1,8 +1,5 @@
 FROM oven/bun:1.2 AS base
 
-# Create a non-root user and switch to it
-RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
-
 # Install dependencies only when needed
 FROM base AS deps
 WORKDIR /app
@@ -30,6 +27,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 # Disable telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Create a non-root user and switch to it
+RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
 
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
