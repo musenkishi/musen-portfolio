@@ -10,6 +10,8 @@ x-hardening: &hardening
   tmpfs:
     - /tmp:rw,noexec,nosuid,nodev,size=512m  # Provide a safe in‑memory /tmp with execution and device creation blocked.
     - /app/.next/cache:rw,noexec,nosuid,nodev,size=256m  # Safe in‑memory cache directory.
+    - /app/.next:rw,noexec,nosuid,nodev,size=256m # Safe in‑memory build output directory.
+
   pids_limit: 512            # Limit the number of processes to prevent fork bombs or runaway workloads.
   mem_limit: 512mb           # Cap memory usage to contain memory exhaustion attacks.
   cpus: 2                    # Restrict CPU usage so the container can't starve the host.
