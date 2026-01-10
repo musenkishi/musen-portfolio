@@ -27,6 +27,11 @@ export default function Page() {
                 description:
                   "Tale Traveler collects the number of steps taken by the user starting from the date you agree to step retrieval in the app. This information is used solely to enhance your adventure experience within the app.",
               },
+              {
+                label: "Health Data History",
+                description:
+                  "Tale Traveler may request access to your health data history to retrieve step count information. This data is accessed only with your explicit permission and is not stored or shared outside of the app.",
+              }
             ]}
           />
         </Section>
