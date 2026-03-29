@@ -14,7 +14,7 @@ const projectBackspace: Project = {
     stack: ["Android", "Kotlin", "Jetpack Compose"],
     link: [
       {
-        href: "https://www.storelens.com/how-it-works",
+        href: "https://www.linkedin.com/company/store-lens/about",
         label: "Store Lens",
       },
     ],

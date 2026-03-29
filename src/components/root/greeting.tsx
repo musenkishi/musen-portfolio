@@ -7,7 +7,7 @@ const Greeting: FC = () => {
         "appear-in-animation text-center backdrop-blur-md mb-6 p-4 bg-white/20 dark:bg-white/10 rounded-xl "
       }
     >
-      Hello, I&apos;m a frontend/app developer in Sweden!
+      Hej! I&apos;m a frontend/app developer in Sweden!
     </span>
   )
 }

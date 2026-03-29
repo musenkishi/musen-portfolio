@@ -101,7 +101,7 @@ const BioTimeline: FC = () => {
     },
     {
       date: "2025",
-      title: "Android developer",
+      title: "Senior Android developer",
       description: (
         <>
           at{" "}
