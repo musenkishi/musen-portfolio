@@ -1,45 +1,30 @@
-FROM oven/bun:1.2 AS base
-
-# Install dependencies only when needed
-FROM base AS deps
+# --- Stage 1: Build using Bun ---
+FROM oven/bun:1.4 AS builder
 WORKDIR /app
-# Install dependencies
-COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile
-# Rebuild the source code only when needed
-FROM base AS builder
-WORKDIR /app
-COPY . .
-COPY --from=deps /app/node_modules ./node_modules
-# make node_modules readable for all users
-# see https://github.com/oven-sh/bun/issues/10331 why this is needed
-RUN chmod -R a+r ./node_modules
 
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Disable telemetry during the build
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Wildcard handles both bun.lock and bun.lockb
+COPY package.json bun.lock* ./
+RUN bun install --frozen-lockfile
+
+COPY . .
 RUN bun run build
 
-# Production image, copy all the files and run next
-FROM oven/bun:1.2-slim AS runner
+# --- Stage 2: Hardened Distroless Production Runner ---
+FROM gcr.io/distroless/nodejs22-debian12:nonroot AS runner
 WORKDIR /app
-ENV NODE_ENV=production
-# Disable telemetry
-ENV NEXT_TELEMETRY_DISABLED=1
 
-# Create a non-root user and switch to it
-RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
+ENV NODE_ENV=production \
+    PORT=3000 \
+    HOSTNAME="0.0.0.0"
 
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-# Copy the public directory to include static assets
+# Copy Next.js standalone build output
 COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nonroot:nonroot /app/.next/standalone ./
+COPY --from=builder --chown=nonroot:nonroot /app/.next/static ./.next/static
 
-RUN chown -R appuser:appgroup /app
-USER appuser
-
+USER nonroot
 EXPOSE 3000
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
-CMD ["bun", "server.js", "--target=bun" ]
+
+CMD ["server.js"]
